@@ -1,23 +1,22 @@
 <template>
-  <section id="media">
-    <div class="container">
-      <div class="row">
-        <places></places>
-        <gallery></gallery>
-        <documents></documents>
-      </div>
-    </div>
-  </section>
+	<div>
+    <news></news>
+    <notes></notes>
+		<events></events>
+  	<media></media> 
+	</div>
 </template>
 <script>
-import documents from './components/Documents.vue'
-import gallery from './components/Gallery.vue'
-import places from './components/Places.vue'
+import news from './components/News.vue'
+import notes from './components/Notes.vue'
+import media from './components/Media.vue'
+import events from './components/Events.vue'
 export default {
   components: {
-    documents,
-    gallery,
-    places
+    news,
+    media,
+    events,
+    notes
   },
   data() {
     return {

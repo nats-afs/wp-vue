@@ -1,7 +1,7 @@
 <template>
   <div class="col s12 m4 l4 galeria">
     <h4>{{title}}</h4>
-		<groupgallery v-for="gallery in galleries" :gallery="gallery"></groupgallery>	
+		<groupgallery v-for="gallery in galleries" :key="gallery.id" :gallery="gallery"></groupgallery>	
   </div>
 </template>
 <script>

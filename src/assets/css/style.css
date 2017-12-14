@@ -96,7 +96,7 @@ nav.navbar-main {
       .news-wrapper .news-content .news-navigation i {
         color: #003b8d; }
     .news-wrapper .news-content .carousel {
-      height: 340px !important; }
+      height: 320px !important; }
   .news-wrapper h2 {
     font-family: 'Lora', Arial, sans-serif;
     font-size: 30pt; }
@@ -116,6 +116,8 @@ nav.navbar-main {
     padding: 1.5em;
     top: 50%;
     width: 70%; }
+    #notes .notes-wrapper a {
+      color: #003b8d; }
   #notes p.flow-text {
     font-size: 1.1rem; }
 

@@ -3,15 +3,15 @@ $(document).ready(function () {
   
   $('section#carousel .carousel.carousel-slider').carousel({fullWidth: true, indicators:true});
   
-  $('.carousel.carousel-slider').carousel({fullWidth: true});
+  $('.carousel').carousel({fullWidth: true,dist:0, shift:0, padding:20});
   
   
   $('.news-nav-left').on('click', function(){
-    $('.carousel').carousel('prev');
+    $('.news-content .carousel').carousel('prev');
   })
   
   $('.news-nav-right').on('click', function(){
-    $('.carousel').carousel('next');
+    $('.news-content .carousel').carousel('next');
   })
   
   $(".button-collapse").sideNav();
