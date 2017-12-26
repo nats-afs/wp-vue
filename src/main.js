@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-
-const media = new Vue({
-  el: '#news-notes-events-media',
+import {store} from './store/store';
+const app = new Vue({
+  el: '#app',
+  store,
   render: h => h(App)
 })

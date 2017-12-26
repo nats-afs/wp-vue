@@ -1,22 +1,22 @@
 <template>
-	<div>
-    <news></news>
-    <notes></notes>
-		<events></events>
-  	<media></media> 
-	</div>
+  <div>
+    <ownheader></ownheader>
+    <ownnav></ownnav>
+    <ownmain></ownmain>
+    <ownfooter></ownfooter>
+  </div>
 </template>
 <script>
-import news from './components/News.vue'
-import notes from './components/Notes.vue'
-import media from './components/Media.vue'
-import events from './components/Events.vue'
+import ownheader from './components/OwnHeader.vue'
+import ownnav from './components/OwnNav.vue'
+import ownmain from './components/OwnMain.vue'
+import ownfooter from './components/OwnFooter.vue'
 export default {
   components: {
-    news,
-    media,
-    events,
-    notes
+    ownmain,
+    ownheader,
+    ownnav,
+    ownfooter
   },
   data() {
     return {

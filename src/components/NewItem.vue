@@ -1,5 +1,5 @@
 <template>
-  <div class="col s12 m4 l4 carousel-item">
+  <div class="col s12 m6 l4 carousel-item">
     <div class="card sticky-action hoverable">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" :src="newitem.imgPath">

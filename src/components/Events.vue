@@ -5,7 +5,7 @@
       <div class="row valign-wrapper">
         <div class="col s12 events-content">
           <div class="row">
-            <eventitem v-for="event in events" :key="event.id" :event="event"></eventitem>
+            <eventitem v-for="(event, index) in events" :index="index" :key="event.id" :event="event"></eventitem>
           </div>
           <div class="events-navigation hide-on-small-only">
             <a class="events-nav-left btn-floating btn-large waves-effect waves-light"><i class="material-icons">arrow_back</i></a>

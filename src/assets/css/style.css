@@ -26,6 +26,8 @@ header {
     background-color: #003b8d; }
     header .header-bottom nav {
       background-color: #003b8d; }
+      header .header-bottom nav .dropdown-content {
+        top: 64px !important; }
       header .header-bottom nav i.fa {
         font-size: 16pt; }
 
@@ -197,7 +199,8 @@ footer.page-footer {
 
 .municipalidad {
   margin: 3em auto; }
-  .municipalidad h5, .municipalidad blockquote strong {
+  .municipalidad h5,
+  .municipalidad blockquote strong {
     color: #003b8d; }
   .municipalidad .mision-vision {
     padding: 1em 2em; }
@@ -237,14 +240,16 @@ footer.page-footer {
         display: inline-block;
         padding: 0 .25em; }
 
-  .news-wrapper {
+  #news .news-wrapper {
     margin: 0 auto; }
-    .news-wrapper .news-title {
+    #news .news-wrapper .news-title {
       padding: 1em 2em; }
-    .news-wrapper .valign-wrapper {
+    #news .news-wrapper .valign-wrapper {
       display: block; }
-    .news-wrapper h2 {
+    #news .news-wrapper h2 {
       font-size: 24pt; }
+    #news .news-wrapper .news-content .carousel {
+      height: 345px !important; }
 
   #events .events-wrapper {
     margin: 4em auto; }

@@ -3,9 +3,9 @@
     <div class="card small sticky-action hoverable">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" :src="event.imgPath">
-        <span class="card-title activator">{{event.title}}</span>
+        <span class="card-title activator">{{event.title}} + {{isPar}}</span>
       </div>
-      <div class="card-reveal blue">
+      <div class="card-reveal" :class="{'blue': isPar}">
         <span class="card-title">{{event.title}}<i class="material-icons right">close</i></span>
         <p>{{event.smallDescription}}</p>
         <div class="card-action">
@@ -17,10 +17,15 @@
 </template>
 <script>
 export default {
-  props:['event'],
+  props:['event','index'],
   data() {
     return {
 
+    }
+  },
+  computed:{
+    isPar(){
+      return this.index % 2 ? true :false;
     }
   }
 }
