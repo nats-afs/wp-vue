@@ -26,32 +26,32 @@ export default {
     	notes:[
     		{
     			title:'Group 1',
-    			smallDescription:'Some Text',
+    			smallDescription:'Title 1',
     			items:[
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'}
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'}
     			]
     		},
     		{
     			title:'Group 2',
-    			smallDescription:'Some Text',
+    			smallDescription:'Title 2',
     			items:[
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'}
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'}
     			]
     		},
     		{
     			title:'Group 3',
-    			smallDescription:'Some Text',
+    			smallDescription:'Title 3',
     			items:[
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'},
-	    			{text:'Texto',link:'#'}
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'},
+	    			{name:'Texto',path:'#'}
     			]
     		},    		    		
     	]

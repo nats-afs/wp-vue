@@ -5,7 +5,7 @@ $(document).ready(function () {
   
   $('.carousel').carousel({fullWidth: true,dist:0, shift:0, padding:20});
   
-  
+  // NAVIGATION NEWS
   $('.news-nav-left').on('click', function(){
     $('.news-content .carousel').carousel('prev');
   })
@@ -13,7 +13,18 @@ $(document).ready(function () {
   $('.news-nav-right').on('click', function(){
     $('.news-content .carousel').carousel('next');
   })
+  // 
+
+  // NAVIGATION EVENTS
+  $('.events-nav-left').on('click', function(){
+    $('.events-content .carousel').carousel('prev');
+  })
   
+  $('.events-nav-right').on('click', function(){
+    $('.events-content .carousel').carousel('next');
+  })
+  // 
+
   $(".button-collapse").sideNav();
   $('.parallax').parallax();
 

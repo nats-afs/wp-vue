@@ -1,16 +1,17 @@
 <template>
   <div class="container header-bottom valign-wrapper hide-on-med-and-down">
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">two</a></li>
-      <li class="divider"></li>
-      <li><a href="#!">three</a></li>
-    </ul>
     <nav>
       <div class="nav-wrapper">
         <ul class="left">
-          <rootlink v-for="link in links" :link="link" :key="link.id"><template v-if="link.icon"><i :class="link.icon"></i></template></rootlink>
-          <!-- <li><a class="dropdown-button" data-activates="dropdown1"><i class="fa fa-fw fa-smile-o"></i>  Servicios<i class="material-icons right">arrow_drop_down</i></a></li> -->
+          <template v-for="link in links">
+            <template v-if="link.children">
+              <parentlink :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></parentlink>
+              <ul :id="link.ref" class="dropdown-content">
+                <rootlink v-for="link in link.children" :link="link" :key="link.id"></rootlink>
+              </ul>
+            </template>
+            <rootlink v-else :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></rootlink>
+          </template>
         </ul>
       </div>
     </nav>
@@ -18,17 +19,35 @@
 </template>
 <script>
 import rootlink from './RootLink.vue'
+import parentlink from './ParentLink.vue'
 export default {
   components: {
-    rootlink
+    rootlink,
+    parentlink
   },
   data() {
     return {
       links: [
         { name: 'Distrito', icon: 'fa fa-fw fa-institution', path: 'distrito.html' },
         { name: 'Municipalidad', icon: 'fa fa-fw fa-building-o', path: 'municipalidad.html' },
-        // { name: 'Servicios', icon: 'fa fa-fw fa-smile-o', path: '#' },
-        { name: 'Link', path: '#' },
+        {
+          name: 'Servicios',
+          icon: 'fa fa-fw fa-smile-o',
+          ref: 'dropdown1',
+          children: [
+            { name: 'Servicio 1', path: 'distrito.html' },
+            { name: 'Servicio 2', path: 'distrito.html' },
+          ]
+        },
+        {
+          name: 'Mas',
+          icon: 'fa fa-fw fa-smile-o',
+          ref: 'dropdown3',
+          children: [
+            { name: 'Servicio 1', path: 'distrito.html' },
+            { name: 'Servicio 2', path: 'distrito.html' },
+          ]
+        },
       ]
     }
   }

@@ -163,6 +163,8 @@ nav.navbar-main {
     color: #fff; }
     #events .events-content .blue a {
       color: #fff; }
+  #events .events-content .carousel {
+    height: 350px !important; }
 
 #media {
   margin: 0 auto 5em auto; }

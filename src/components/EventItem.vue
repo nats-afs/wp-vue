@@ -1,9 +1,9 @@
 <template>
-  <div class="col s12 m3">
+  <div class="col s12 m3 l3 carousel-item">
     <div class="card small sticky-action hoverable">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" :src="event.imgPath">
-        <span class="card-title activator">{{event.title}} + {{isPar}}</span>
+        <span class="card-title activator">{{event.title}}</span>
       </div>
       <div class="card-reveal" :class="{'blue': isPar}">
         <span class="card-title">{{event.title}}<i class="material-icons right">close</i></span>

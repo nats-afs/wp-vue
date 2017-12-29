@@ -1,5 +1,4 @@
 <template>
-	<!-- <li><a :href="link.path"><i :class="link.icon"></i> {{link.name}}</a></li> -->
 	<li><a :href="link.path"><slot></slot> {{link.name}}</a></li>
 </template>
 

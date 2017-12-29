@@ -5,7 +5,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     title: 'Municipalidad Centro Poblado Santa Maria de Huachipa',
-    slogan: '!Trabajando por el cambio!',
+    slogan: '¡Trabajando por el cambio!',
     copyright: '© 2017 Copyright Municipalidad del Centro Poblado Santa Maria de Huachipa',
   },
   getters: {

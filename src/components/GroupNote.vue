@@ -4,16 +4,16 @@
       <h5>{{note.title}}</h5>
       <p class="flow-text">{{note.smallDescription}}</p>
       <ul>
-        <noteitem v-for="item in note.items" :note="item" :key="item.id"></noteitem>	
+        <rootlink v-for="item in note.items" :link="item" :key="item.id"></rootlink>
       </ul>
     </div>
   </div>
 </template>
 <script>
-import noteitem from './NoteItem.vue'
+import rootlink from './RootLink.vue'
 export default {
 	components:{
-		noteitem
+		rootlink
 	},
 	props:['note']
 }
