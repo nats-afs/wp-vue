@@ -45,4 +45,13 @@ $(document).ready(function () {
         belowOrigin: true, // Displays dropdown below the button
       }
     );
+
+  $('#mobile-sidenav .dropdown-button').dropdown({
+        // hover: false, // Activate on hover
+        belowOrigin: true, // Displays dropdown below the button
+      }
+    );
+
   });
+
+

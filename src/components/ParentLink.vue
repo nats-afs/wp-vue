@@ -1,5 +1,5 @@
 <template>
-  <li><a class="dropdown-button" :data-activates="link.ref" data-beloworigin="true"> {{link.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
+  <li><a class="dropdown-button" :data-activates="link.ref" data-beloworigin="true"><slot></slot> {{link.name}}<slot name="arrow"></slot></a></li>
 </template>
 <script>
 import rootlink from './RootLink.vue'

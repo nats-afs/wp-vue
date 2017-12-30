@@ -5,7 +5,10 @@
         <ul class="left">
           <template v-for="link in links">
             <template v-if="link.children">
-              <parentlink :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></parentlink>
+              <parentlink :link="link" :key="link.id">
+                <template><i v-if="link.icon" :class="link.icon"></i></template>
+                <template name="arrow"><i class="material-icons right">arrow_drop_down</i></template>
+              </parentlink>
               <ul :id="link.ref" class="dropdown-content">
                 <rootlink v-for="link in link.children" :link="link" :key="link.id"></rootlink>
               </ul>
@@ -41,13 +44,13 @@ export default {
         },
         {
           name: 'Mas',
-          icon: 'fa fa-fw fa-smile-o',
-          ref: 'dropdown3',
+          icon: 'fa fa-fw fa-plus',
+          ref: 'dropdown2',
           children: [
             { name: 'Servicio 1', path: 'distrito.html' },
             { name: 'Servicio 2', path: 'distrito.html' },
           ]
-        },
+        }
       ]
     }
   }
