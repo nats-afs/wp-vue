@@ -5,7 +5,7 @@
     </div>
     <div class="col s8">
       <h5>{{gallery.place}}</h5>
-      <p>{{gallery.date}}</p><span>{{gallery.num}} fotos</span>
+      <p>{{gallery.date}}</p><span>{{gallery.items.length}} fotos</span>
     </div>
   </div>
 </template>

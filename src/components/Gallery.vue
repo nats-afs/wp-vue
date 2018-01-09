@@ -17,7 +17,6 @@
 					{
 						place: 'Palacio Municipal',
 		        date: '13 de Enero',
-		        num: 4,
 		        items: [
 		          { smallPath: '/src/assets/img/img1s.jpg', bigPath: '/src/assets/img/img1b.jpg', group: 'gallery1', caption: 'caption 1' , main: false},
 		          { smallPath: '/src/assets/img/img2s.jpg', bigPath: '/src/assets/img/img2b.jpg', group: 'gallery1', caption: 'caption 2' , main: true},
@@ -28,7 +27,6 @@
 					{
 						place: 'Palacio Municipal',
 		        date: '13 de Enero',
-		        num: 4,
 		        items: [
 		          { smallPath: '/src/assets/img/img1s.jpg', bigPath: '/src/assets/img/img1b.jpg', group: 'gallery1', caption: 'caption 1' , main: false},
 		          { smallPath: '/src/assets/img/img2s.jpg', bigPath: '/src/assets/img/img2b.jpg', group: 'gallery1', caption: 'caption 2' , main: true},
@@ -39,7 +37,6 @@
 					{
 						place: 'Palacio Municipal',
 		        date: '13 de Enero',
-		        num: 4,
 		        items: [
 		          { smallPath: '/src/assets/img/img1s.jpg', bigPath: '/src/assets/img/img1b.jpg', group: 'gallery1', caption: 'caption 1' , main: false},
 		          { smallPath: '/src/assets/img/img2s.jpg', bigPath: '/src/assets/img/img2b.jpg', group: 'gallery1', caption: 'caption 2' , main: true},
