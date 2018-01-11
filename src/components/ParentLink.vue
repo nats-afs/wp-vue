@@ -1,20 +1,36 @@
 <template>
   <li>
-    <a :data-activates="link.ref" data-beloworigin="true" class="dropdown-button"><slot></slot> {{link.name}}<slot name="arrow"></slot></a>
-    <ul :id="link.ref"  class="dropdown-content">
+    <a :data-activates="setId" data-beloworigin="true" class="dropdown-button"><slot></slot> {{link.name}}<slot name="arrow"></slot></a>
+    <ul :id="setId"  class="dropdown-content">
       <rootlink v-for="link in link.children" :link="link" :key="link.id"></rootlink>
     </ul>
   </li>
 </template>
 <script>
-import rootlink from './RootLink.vue'
+import rootlink from "./RootLink.vue";
 export default {
   components: {
     rootlink
   },
-  props: ["link"],
+  props: {
+    link:{
+      required: true
+    },
+    movil:{
+      type:Boolean,
+      required:false,
+      default:false
+    }
+  },
+  
   data() {
     return {};
+  },
+  computed: {
+    setId() {
+      return this.movil 
+      // ? link.ref + "-m" : link.ref;
+    }
   }
 };
 </script>

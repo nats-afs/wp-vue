@@ -3,15 +3,10 @@
     <div class="container">
       <nav class="navbar-main">
         <div class="nav-wrapper">
-          <!-- <sidenav></sidenav> -->
+          <sidenav></sidenav>
           <ul class="hide-on-med-and-down">
             <template v-for="link in getLinksNav">
-              <template v-if="link.children">
-                <parentlink :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></parentlink>
-                <ul :id="link.ref" :key="link.id" class="dropdown-content">
-                  <rootlink v-for="link in link.children" :link="link" :key="link.id"></rootlink>
-                </ul>
-              </template>
+              <parentlink v-if="link.children" :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></parentlink>
               <rootlink v-else :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></rootlink>
             </template>
           </ul>

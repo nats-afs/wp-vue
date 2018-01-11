@@ -7,6 +7,8 @@ export const store = new Vuex.Store({
     title: 'Municipalidad Centro Poblado Santa Maria de Huachipa',
     slogan: '¡Trabajando por el cambio!',
     copyright: '© 2017 Copyright Municipalidad del Centro Poblado Santa Maria de Huachipa',
+    linksHeaderMovil: [],
+    linksNavMovil: [],
     linksNav: [
       { name: "Inicio", path: "/" },
       { name: "Noticias", path: "/" },
@@ -14,7 +16,7 @@ export const store = new Vuex.Store({
       { name: "Eventos", path: "/" },
       {
         name: "Galeria",
-        ref: "gallery-dropdown",
+        ref: "gall-dropdown",
         children: [
           { name: "Galeria 1", path: "/" },
           { name: "Galeria 2", path: "/" }
@@ -81,6 +83,20 @@ export const store = new Vuex.Store({
     },
     getLinksNav: (state) => {
       return state.linksNav;
+    },
+    getLinksHeaderMovil: (state) => {
+      state.linksHeaderMovil = state.linksHeader;
+      // state.linksHeaderMovil.forEach(link => {
+      //   link.ref = link.ref + '-m';
+      // });
+      return state.linksHeaderMovil;
+    },
+    getLinksNavMovil: (state) => {
+      state.linksNavMovil = state.linksNav;
+      // state.linksNavMovil.forEach(link =>{
+      //   link.ref = link.ref + '-m';
+      // });
+      return state.linksNavMovil;
     }
   }
 });

@@ -4,12 +4,10 @@
       <div class="nav-wrapper">
         <ul class="left">
           <template v-for="link in getLinksHeader">
-            <template v-if="link.children">
-              <parentlink :link="link" :key="link.id">
-                <template><i v-if="link.icon" :class="link.icon"></i></template>
-                <template name="arrow"><i class="material-icons right">arrow_drop_down</i></template>
-              </parentlink>
-            </template>
+            <parentlink v-if="link.children" :link="link" :key="link.id" movil="true">
+              <i v-if="link.icon" :class="link.icon"></i>
+              <template name="arrow"><i class="material-icons right">arrow_drop_down</i></template>
+            </parentlink>
             <rootlink v-else :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></rootlink>
           </template>
         </ul>
