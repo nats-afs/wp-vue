@@ -1,5 +1,7 @@
 <template>
-	<li><a :href="link.path"><slot></slot> {{link.name}}</a></li>
+  <li>
+    <router-link :to="link.path"><slot></slot> {{link.name}}</router-link>
+  </li>  
 </template>
 
 <script>

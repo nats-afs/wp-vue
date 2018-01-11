@@ -3,12 +3,12 @@
     <div class="container">
       <nav class="navbar-main">
         <div class="nav-wrapper">
-          <sidenav></sidenav>
+          <!-- <sidenav></sidenav> -->
           <ul class="hide-on-med-and-down">
-            <template v-for="link in links">
+            <template v-for="link in getLinksNav">
               <template v-if="link.children">
                 <parentlink :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></parentlink>
-                <ul :id="link.ref" class="dropdown-content">
+                <ul :id="link.ref" :key="link.id" class="dropdown-content">
                   <rootlink v-for="link in link.children" :link="link" :key="link.id"></rootlink>
                 </ul>
               </template>
@@ -21,9 +21,10 @@
   </div>
 </template>
 <script>
-import rootlink from './RootLink.vue'
-import parentlink from './ParentLink.vue'
-import sidenav from './SideNav.vue'
+import rootlink from "./RootLink.vue";
+import parentlink from "./ParentLink.vue";
+import sidenav from "./SideNav.vue";
+import { mapGetters } from "vuex";
 export default {
   components: {
     rootlink,
@@ -32,33 +33,12 @@ export default {
   },
   data() {
     return {
-      links: [{
-          name: 'Inicio',
-          ref: 'dropdown3',
-          children: [
-            { name: 'Inicio 1', path: 'distrito.html' },
-            { name: 'Inicio 2', path: 'distrito.html' },
-          ]
-        },
-        { name: 'Noticias', path: '#' },
-        { name: 'Directorio', path: '#' },
-        { name: 'Eventos', path: '#' },
-        {
-          name: 'Galeria',
-          ref: 'dropdown4',
-          children: [
-            { name: 'Galeria 1', path: 'distrito.html' },
-            { name: 'Galeria 2', path: 'distrito.html' },
-          ]
-        },
-        { name: 'Documentos', path: '#' }
-      ]
-    }
-  }
-}
 
+    }
+  },
+  computed: mapGetters(['getLinksNav'])
+};
 </script>
 <style>
-
 
 </style>

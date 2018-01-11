@@ -4,10 +4,10 @@
   <div>
     <a href="#" data-activates="mobile-sidenav" class="button-collapse valign-wrapper"><i class="material-icons">menu</i> Menu</a>
     <ul class="side-nav" id="mobile-sidenav">
-      <template v-for="link in linksNav">
+      <template v-for="link in getLinksNav">
         <template v-if="link.children">
           <parentlink :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></parentlink>
-          <ul :id="link.ref" class="dropdown-content">
+          <ul :id="link.ref" :key="link.id" class="dropdown-content">
             <rootlink v-for="link in link.children" :link="link" :key="link.id"></rootlink>
           </ul>
         </template>
@@ -16,10 +16,10 @@
       <!-- divider -->
       <li class="divider"></li>
       <!--  -->
-      <template v-for="link in linksHeader">
+      <template v-for="link in getLinksHeader">
         <template v-if="link.children">
           <parentlink :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></parentlink>
-          <ul :id="link.ref" class="dropdown-content">
+          <ul :id="link.ref" :key="link.id" class="dropdown-content">
             <rootlink v-for="link in link.children" :link="link" :key="link.id"></rootlink>
           </ul>
         </template>
@@ -32,6 +32,7 @@
 <script>
 import rootlink from './RootLink.vue'
 import parentlink from './ParentLink.vue'
+import { mapGetters } from "vuex";
 export default {
   components: {
     rootlink,
@@ -39,51 +40,10 @@ export default {
   },
   data() {
     return {
-      linksNav: [{
-          name: 'Inicio',
-          ref: 'dropdown5',
-          children: [
-            { name: 'Inicio 1', path: 'distrito.html' },
-            { name: 'Inicio 2', path: 'distrito.html' },
-          ]
-        },
-        { name: 'Noticias', path: '#' },
-        { name: 'Directorio', path: '#' },
-        { name: 'Eventos', path: '#' },
-        {
-          name: 'Galeria',
-          ref: 'dropdown6',
-          children: [
-            { name: 'Galeria 1', path: 'distrito.html' },
-            { name: 'Galeria 2', path: 'distrito.html' },
-          ]
-        },
-        { name: 'Documentos', path: '#' }
-      ],
-      linksHeader: [
-        { name: 'Distrito', icon: 'fa fa-fw fa-institution', path: 'distrito.html' },
-        { name: 'Municipalidad', icon: 'fa fa-fw fa-building-o', path: 'municipalidad.html' },
-        {
-          name: 'Servicios',
-          icon: 'fa fa-fw fa-smile-o',
-          ref: 'dropdown7',
-          children: [
-            { name: 'Servicio 1', path: 'distrito.html' },
-            { name: 'Servicio 2', path: 'distrito.html' },
-          ]
-        },
-        {
-          name: 'Mas',
-          icon: 'fa fa-fw fa-smile-o',
-          ref: 'dropdown8',
-          children: [
-            { name: 'Servicio 1', path: 'distrito.html' },
-            { name: 'Servicio 2', path: 'distrito.html' },
-          ]
-        }
-      ]
+     
     }
-  }
+  },
+  computed: mapGetters(["getLinksHeader","getLinksNav"])
 }
 
 </script>
