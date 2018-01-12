@@ -1,23 +1,20 @@
 <template>
-  <!--         SIDENAV MOBILE-->
-  <!-- mejorar esto de tipo acordeon -->
   <div>
     <a href="#" data-activates="mobile-sidenav" class="button-collapse valign-wrapper"><i class="material-icons">menu</i> Menu</a>
     <ul class="side-nav" id="mobile-sidenav">
       <template v-for="link in getLinksNavMovil">
-        <parentlink v-if="link.children" :link="link" :key="link.id" movil=true><i v-if="link.icon" :class="link.icon"></i></parentlink>
+        <parentlink v-if="link.children" :link="link" :key="link.id" :movil=true><i v-if="link.icon" :class="link.icon"></i></parentlink>
         <rootlink v-else :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></rootlink>
       </template>
       <!-- divider -->
       <li class="divider"></li>
       <!--  -->
       <template v-for="link in getLinksHeaderMovil">
-        <parentlink v-if="link.children" :link="link" :key="link.id" movil=true><i v-if="link.icon" :class="link.icon"></i></parentlink>
+        <parentlink v-if="link.children" :link="link" :key="link.id" :movil=true><i v-if="link.icon" :class="link.icon"></i></parentlink>
         <rootlink v-else :link="link" :key="link.id"><i v-if="link.icon" :class="link.icon"></i></rootlink>
       </template>
     </ul>
   </div>
-  <!--          END SIDENAV-->
 </template>
 <script>
 import rootlink from "./RootLink.vue";

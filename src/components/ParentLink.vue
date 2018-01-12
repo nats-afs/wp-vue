@@ -28,8 +28,7 @@ export default {
   },
   computed: {
     setId() {
-      return this.movil 
-      // ? link.ref + "-m" : link.ref;
+      return !this.movil ? this.link.ref + "-m" : this.link.ref;
     }
   }
 };

@@ -1,4 +1,3 @@
-import Home from './components/Home.vue';
 import OwnMain from './components/OwnMain.vue';
 // municipalidad componentes
 import Municipalidad from './components/municipalidad/Municipalidad.vue';
@@ -18,7 +17,7 @@ import Ecologia from './components/distrito/Ecologia.vue';
 import NotFound from './components/NotFound.vue'
 
 export const routes = [
-    { path: '*', components: NotFound },
+    { path: '*', component: NotFound },
     { path: '/', component: OwnMain },
     {
         path: '/municipalidad/', component: Municipalidad, children: [
