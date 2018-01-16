@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
     linksNavMovil: [],
     linksNav: [
       { name: "Inicio", path: "/" },
-      { name: "Noticias", path: "/" },
+      { name: "Noticias", path: "/news" },
       { name: "Directorio", path: "/" },
       { name: "Eventos", path: "/" },
       {
@@ -47,25 +47,25 @@ export const store = new Vuex.Store({
           { name: 'Mision - Vision', path: '/municipalidad/mision-vision' }
         ]
       }
-      // ,
-      // {
-      //   name: 'Servicios',
-      //   icon: 'fa fa-fw fa-smile-o',
-      //   ref: 'dropdown1',
-      //   children: [
-      //     { name: 'Servicio 1', path: 'distrito.html' },
-      //     { name: 'Servicio 2', path: 'distrito.html' },
-      //   ]
-      // },
-      // {
-      //   name: 'Mas',
-      //   icon: 'fa fa-fw fa-plus',
-      //   ref: 'dropdown2',
-      //   children: [
-      //     { name: 'Servicio 1', path: 'distrito.html' },
-      //     { name: 'Servicio 2', path: 'distrito.html' },
-      //   ]
-      // }
+      ,
+      {
+        name: 'Servicios',
+        icon: 'fa fa-fw fa-smile-o',
+        ref: 'serv-dropdown',
+        children: [
+          { name: 'Servicio 1', path: '/servicios/servicio-1' },
+          { name: 'Servicio 2', path: '/servicios/servicio-2' },
+        ]
+      },
+      {
+        name: 'Mas',
+        icon: 'fa fa-fw fa-plus',
+        ref: 'mas-dropdown',
+        children: [
+          { name: 'Mas 1', path: '/mas/mas-1' },
+          { name: 'Mas 2', path: '/mas/mas-2' }
+        ]
+      }
     ]
   },
   getters: {

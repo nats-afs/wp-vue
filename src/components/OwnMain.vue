@@ -1,10 +1,10 @@
 <template>
-    <main>
+    <section>
       <news></news>
       <notes></notes>
       <events></events>
       <media></media> 
-    </main>
+    </section>
 </template>
 
 <script>

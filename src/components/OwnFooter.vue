@@ -22,8 +22,8 @@
   </footer>
 </template>
 <script>
-import rootlink from './RootLink.vue'
-import iconlink from './IconLink.vue'
+import rootlink from './util/RootLink.vue'
+import iconlink from './util/IconLink.vue'
 import {mapGetters} from 'vuex'
 export default {
   components: {

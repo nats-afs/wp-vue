@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import rootlink from './RootLink.vue'
+import rootlink from './util/RootLink.vue'
 export default {
 	components:{
 		rootlink

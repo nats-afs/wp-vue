@@ -16,8 +16,8 @@
   </div>
 </template>
 <script>
-import rootlink from "./RootLink.vue";
-import parentlink from "./ParentLink.vue";
+import rootlink from "./util/RootLink.vue";
+import parentlink from "./util/ParentLink.vue";
 import sidenav from "./SideNav.vue";
 import { mapGetters } from "vuex";
 export default {
@@ -34,6 +34,6 @@ export default {
   computed: mapGetters(['getLinksNav'])
 };
 </script>
-<style>
-
+<style lang="scss" scoped>
+  
 </style>

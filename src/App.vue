@@ -2,7 +2,9 @@
   <div>
     <ownheader></ownheader>
     <ownnav></ownnav>
-    <router-view></router-view>
+    <main>
+      <router-view></router-view>
+    </main>
     <ownfooter></ownfooter>
   </div>
 </template>

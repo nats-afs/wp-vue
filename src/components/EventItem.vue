@@ -6,7 +6,9 @@
         <span class="card-title activator">{{event.title}}</span>
       </div>
       <div class="card-reveal" :class="{'blue': isPar}">
-        <span class="card-title">{{event.title}}<i class="material-icons right">close</i></span>
+        <span class="card-title">{{event.title}}
+          <i class="material-icons right">close</i>
+        </span>
         <p>{{event.smallDescription}}</p>
         <div class="card-action">
           <a :href="event.link">Ver mas ...</a>
@@ -16,22 +18,20 @@
   </div>
 </template>
 <script>
-export default {
-  props:['event','index'],
-  data() {
-    return {
+  export default {
+    props: ['event', 'index'],
+    data() {
+      return {
 
-    }
-  },
-  computed:{
-    isPar(){
-      return this.index % 2 ? true :false;
+      }
+    },
+    computed: {
+      isPar() {
+        return this.index % 2 ? true : false;
+      }
     }
   }
-}
 
 </script>
 <style>
-
-
 </style>
