@@ -21,48 +21,7 @@
             <div class="news-list">
               <div class="col s12">
                 <h5>Ultimas Noticias</h5>
-                <div class="card horizontal hoverable">
-                  <div class="card-image">
-                    <img src="../assets/img/cardImage.jpg">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <h5 class="news-title">Inauguracion de Escaleras en Av. Santa Rosa</h5>
-                      <small>16-01-2018</small>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">Leer mas</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card horizontal hoverable">
-                  <div class="card-image">
-                    <img src="../assets/img/cardImage.jpg">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <h5 class="news-title">Inauguracion de Escaleras en Av. Santa Rosa</h5>
-                      <small>16-01-2018</small>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">Leer mas</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card horizontal hoverable">
-                  <div class="card-image">
-                    <img src="../assets/img/cardImage.jpg">
-                  </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <h5 class="news-title">Inauguracion de Escaleras en Av. Santa Rosa</h5>
-                      <small>16-01-2018</small>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">Leer mas</a>
-                    </div>
-                  </div>
-                </div>
+                <noticiaitem v-for="noticia in noticias" :key="noticia.id" :noticia="noticia"></noticiaitem>
                 <div class="container more">
                   <div class="center-align">
                     <a href="#" class="waves-effect btn-flat">Mas <i class="material-icons">more_horiz</i></a>
@@ -77,10 +36,13 @@
   </section>
 </template>
 <script>
+import noticiaitem from "./NoticiaItem.vue";
 import newitem from "./NewItem.vue";
+const db = firebase.database();
 export default {
   components: {
-    newitem
+    newitem,
+    noticiaitem
   },
   data() {
     return {
@@ -93,8 +55,26 @@ export default {
         actionLink2: "#",
         actionLinkText1: "Accion 1",
         actionLinkText2: "Accion 2"
-      }
+      },
+      noticias: []
     };
+  },
+  created() {
+    const db = firebase.database();
+    db
+      .ref("/news")
+      .on("value", snapshot => this.getNews(snapshot.val()));
+  },
+  methods: {
+    getNews(news) {
+      for (let key in news) {
+        this.noticias.push({
+          title: news[key].title,
+          image: news[key].image,
+          description: news[key].description
+        });
+      }
+    }
   }
 };
 </script>
