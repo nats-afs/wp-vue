@@ -86,16 +86,10 @@ export const store = new Vuex.Store({
     },
     getLinksHeaderMovil: (state) => {
       state.linksHeaderMovil = state.linksHeader;
-      // state.linksHeaderMovil.forEach(link => {
-      //   link.ref = link.ref + '-m';
-      // });
       return state.linksHeaderMovil;
     },
     getLinksNavMovil: (state) => {
       state.linksNavMovil = state.linksNav;
-      // state.linksNavMovil.forEach(link =>{
-      //   link.ref = link.ref + '-m';
-      // });
       return state.linksNavMovil;
     }
   }

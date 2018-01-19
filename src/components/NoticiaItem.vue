@@ -1,12 +1,12 @@
 <template>
-  <div class="card horizontal hoverable">
+  <div class="card horizontal small hoverable">
     <div class="card-image">
       <img :src="noticia.image">
     </div>
     <div class="card-stacked">
       <div class="card-content">
-        <h5 class="news-title">{{noticia.title}}</h5>
-        <small>16-01-2018</small>
+        <h6 class="news-title">{{noticia.title}}</h6>
+        <small>{{noticia.date}}</small>
       </div>
       <div class="card-action">
         <a href="#">Leer mas</a>
@@ -22,7 +22,9 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-
+<style lang="scss" scoped>
+  .small{
+    height: 180px;
+  }
 </style>
 

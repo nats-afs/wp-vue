@@ -1,8 +1,8 @@
 <template>
   <section id="noticias">
-    <div class="row">
-      <div class="container noticias-wrapper">
-        <div class="col s12">
+    <div class="container">
+      <div class="row noticias-wrapper">
+        <div class="col s8">
           <div class="news-main">
             <h1>Noticias</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dolorem debitis numquam reprehenderit accusamus
@@ -10,7 +10,7 @@
             <router-view></router-view>
           </div>
         </div>
-        <div class="col s12">
+        <div class="col s4">
           <div class="news-sidebar">
             <div class="featured-post">
               <div class="col s12">
@@ -21,7 +21,7 @@
             <div class="news-list">
               <div class="col s12">
                 <h5>Ultimas Noticias</h5>
-                <noticiaitem v-for="noticia in noticias" :key="noticia.id" :noticia="noticia"></noticiaitem>
+                <noticiaitem v-for="noticia in news" :key="noticia.id" :noticia="noticia"></noticiaitem>
                 <div class="container more">
                   <div class="center-align">
                     <a href="#" class="waves-effect btn-flat">Mas <i class="material-icons">more_horiz</i></a>
@@ -38,7 +38,8 @@
 <script>
 import noticiaitem from "./NoticiaItem.vue";
 import newitem from "./NewItem.vue";
-const db = firebase.database();
+import { newsRef } from "../config/firebaseConfig";
+
 export default {
   components: {
     newitem,
@@ -59,12 +60,13 @@ export default {
       noticias: []
     };
   },
-  created() {
-    const db = firebase.database();
-    db
-      .ref("/news")
-      .on("value", snapshot => this.getNews(snapshot.val()));
+  firebase:{
+    news: newsRef.limitToLast(5)
   },
+  // created() {
+  //     ref("/news")
+  //     .on("value", snapshot => this.getNews(snapshot.val()));
+  // },
   methods: {
     getNews(news) {
       for (let key in news) {
@@ -74,7 +76,8 @@ export default {
           description: news[key].description
         });
       }
-    }
+    },
+
   }
 };
 </script>
@@ -82,7 +85,7 @@ export default {
 #noticias {
   margin: 1.5em auto;
   .noticias-wrapper {
-    display: grid;
+    // display: grid;
     grid-gap: 2em;
     grid-template-columns: 2fr 1fr;
   }

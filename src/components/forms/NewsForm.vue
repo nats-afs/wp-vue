@@ -3,7 +3,7 @@
     <div class="row">
       <h1>Noticias</h1>
       <div class="divider"></div>
-      <form @submit.prevent="saveNew" class="col s12">
+      <form @submit.prevent="addNews" class="col s12">
         <div class="row">
           <div class="col s8">
             <div class="row">
@@ -44,26 +44,26 @@
   </div>
 </template>
 <script>
+import { newsRef } from "../../config/firebaseConfig";
+import moment from "moment";
 export default {
   data() {
     return {
       noticia: {
         title: null,
         description: null,
-        image: null
+        image: null,
+        date: null
       }
     };
   },
   methods: {
-    saveNew() {
-      var database = firebase.database();
-
-      database
-        .ref("news")
-        .push(this.noticia)
-        .then(() => {
-          console.info("Noticia guardada!!");
-        });
+    addNews: function() {
+      this.noticia.date = this.getdate;
+      newsRef.push(this.noticia);
+      this.noticia.title = null;
+      this.noticia.description = null;
+      this.noticia.image = null;
     },
     previewImage: function(event) {
       // Reference to the DOM input element
@@ -82,14 +82,19 @@ export default {
         reader.readAsDataURL(input.files[0]);
       }
     }
+  },
+  computed: {
+    getdate() {
+      return moment().format("DD-MM-YYYY");
+    }
   }
 };
 </script>
 <style lang="scss">
-  .img-wrapper{
-    border: 2px solid rgb(126, 121, 121);
-    &>img{
-      height: 200px;
-    }
+.img-wrapper {
+  border: 2px solid rgb(126, 121, 121);
+  & > img {
+    height: 200px;
   }
+}
 </style>

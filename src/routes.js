@@ -65,7 +65,9 @@ export const routes = [
     { path: '/', component: OwnMain },
     {
         path: '/news', component: Noticias, children: [
-            { path: '', component: DefaultNew }
+            { path: '', component: DefaultNew ,children:[
+                {path:':id',component: DefaultNew}
+            ]}
         ]
     },
     // formulario

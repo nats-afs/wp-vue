@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueFire from 'vuefire';
 import App from './App.vue';
 // import ErrorPage from 'vue-error-page'
 import { store } from './store/store';
 import { routes } from './routes';
 
 Vue.use(VueRouter);
-
+Vue.use(VueFire)
 // window.eventBus = new Vue();
 
 // Vue.use(ErrorPage, {
@@ -17,6 +18,7 @@ Vue.use(VueRouter);
 //   bus: 'eventBus',
 //   event: 'error-page'
 // });
+
 
 
 const router = new VueRouter({
