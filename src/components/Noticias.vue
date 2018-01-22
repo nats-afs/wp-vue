@@ -39,7 +39,6 @@
 import noticiaitem from "./NoticiaItem.vue";
 import newitem from "./NewItem.vue";
 import { newsRef } from "../config/firebaseConfig";
-
 export default {
   components: {
     newitem,
@@ -56,28 +55,11 @@ export default {
         actionLink2: "#",
         actionLinkText1: "Accion 1",
         actionLinkText2: "Accion 2"
-      },
-      noticias: []
+      }
     };
   },
   firebase:{
     news: newsRef.limitToLast(5)
-  },
-  // created() {
-  //     ref("/news")
-  //     .on("value", snapshot => this.getNews(snapshot.val()));
-  // },
-  methods: {
-    getNews(news) {
-      for (let key in news) {
-        this.noticias.push({
-          title: news[key].title,
-          image: news[key].image,
-          description: news[key].description
-        });
-      }
-    },
-
   }
 };
 </script>

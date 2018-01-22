@@ -8,8 +8,7 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      "**/sass/**",
-      "**/js/materialize/**"
+      "**/sass/**"
     ],
     "rewrites": [
       {

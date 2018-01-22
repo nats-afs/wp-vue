@@ -1,24 +1,33 @@
 <template>
   <article>
-    <h4>Noticia por defecto</h4>
-    <small>{{ $route.params.id }}</small>
-    <small>16-01-2018</small>
-    <img class="responsive-img" src="../assets/img/img1b.jpg" alt="">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, non? Quam ullam dolorem ipsum placeat neque enim. Quos nesciunt corporis, cum molestias eius dolorem harum quo! Consequuntur ab sequi consequatur!</p>
-    <p>Voluptate natus culpa exercitationem et quis tenetur quaerat error enim reiciendis dolor vel repudiandae tempore amet nostrum ut repellendus, distinctio placeat, molestias cum odit! Impedit exercitationem hic officiis sed facilis.</p>
-    <p>Optio quia voluptates nihil perferendis distinctio consequuntur, ipsum recusandae corrupti, harum ducimus dolorum. Modi officiis consectetur enim distinctio mollitia ipsa eius, eos nostrum quibusdam rerum expedita reprehenderit quae voluptatibus quaerat?</p>
-    <p>Sunt voluptas ipsam necessitatibus libero est temporibus maxime deserunt mollitia delectus odit. Repellendus eos corrupti saepe possimus architecto optio laboriosam libero quod ab eius! Nesciunt earum explicabo nulla fuga dolores.</p>
-    <p>Laudantium, suscipit ut rerum necessitatibus nostrum sed omnis beatae mollitia non iusto enim culpa, minima magni vel nisi, nihil consequatur iste praesentium temporibus quisquam expedita dolorum! Harum sunt maxime omnis.</p>
-    <router-link to="/news/foo">/news/foo</router-link>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto numquam perspiciatis quia et optio ex consequatur dignissimos deleniti libero fugit expedita, nisi dolor ab veritatis maiores totam odio placeat praesentium.
+    <!-- <h4>{{news.title}}</h4>
+    <small>{{news.date}}</small>
+    <img class="responsive-img" :src="news.image" alt="">
+    <p>{{news.description}}</p> -->
   </article>
 </template>
 <script>
+import { newsRef } from "../config/firebaseConfig";
 export default {
-  
+  data() {
+    return {
+      news: null
+    }
+  }
+  // ,
+  // firebase: function() {
+  //   return {
+  //     noticia: newsRef.limitToLast(1)
+  //   }
+  // },
+  // created(){
+  //   this.news = this.noticia
+  // }
 }
 </script>
 <style lang="scss" scoped>
-  img{
-    margin: 1em auto;
-  }
+img {
+  margin: 1em auto;
+}
 </style>

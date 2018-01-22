@@ -50,6 +50,7 @@ export default {
   data() {
     return {
       noticia: {
+        uid:null,
         title: null,
         description: null,
         image: null,
@@ -59,8 +60,11 @@ export default {
   },
   methods: {
     addNews: function() {
+      var newsPostRef = newsRef.push(this.noticia);
+      this.noticia.uid = newsPostRef.key;
       this.noticia.date = this.getdate;
-      newsRef.push(this.noticia);
+      newsPostRef.set(this.noticia);
+      // newsRef.push(this.noticia);
       this.noticia.title = null;
       this.noticia.description = null;
       this.noticia.image = null;

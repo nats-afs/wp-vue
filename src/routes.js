@@ -25,6 +25,7 @@ import Mas2 from './components/mas/Mas2.vue';
 // end mas components
 import Noticias from './components/Noticias.vue'
 import DefaultNew from './components/DefaultNew.vue'
+import NewsDetail from './components/NewsDetail.vue'
 
 // forms
 import NewsForm from './components/forms/NewsForm'
@@ -34,15 +35,15 @@ import NotFound from './components/NotFound.vue'
 export const routes = [
     { path: '*', component: NotFound },
     {
-        path: '/municipalidad', component: Municipalidad, children: [
-            { path: 'alcalde', component: Alcalde },
-            { path: 'regidores', component: Regidores },
-            { path: 'funcionarios', component: Funcionarios },
-            { path: 'mision-vision', component: MisionVision },
+        path: '/municipalidad', name:'municipio', component: Municipalidad, children: [
+            { path: 'alcalde', name:'alcalde', component: Alcalde },
+            { path: 'regidores', name:'regidores', component: Regidores },
+            { path: 'funcionarios', name:'funcionarios', component: Funcionarios },
+            { path: 'mision-vision', name:'mision-vision', component: MisionVision },
         ]
     },
     {
-        path: '/distrito', component: Distrito, children: [
+        path: '/distrito',  component: Distrito, children: [
             { path: 'creacion', component: CreacionPolitica },
             { path: 'historia', component: Historia },
             { path: 'turismo', component: Turismo },
@@ -62,12 +63,11 @@ export const routes = [
         ]
     },
     // navbar
-    { path: '/', component: OwnMain },
+    { path: '/', name:'inicio', component: OwnMain },
     {
         path: '/news', component: Noticias, children: [
-            { path: '', component: DefaultNew ,children:[
-                {path:':id',component: DefaultNew}
-            ]}
+            { path: '', component: DefaultNew },
+            { path: ':uid', name: 'detail', component: NewsDetail, props:true}
         ]
     },
     // formulario

@@ -9,7 +9,7 @@
         <small>{{noticia.date}}</small>
       </div>
       <div class="card-action">
-        <a href="#">Leer mas</a>
+        <router-link :to="{ name: 'detail', params: {uid: noticia.uid, news: noticia}}">Leer mas</router-link>
       </div>
     </div>
   </div>
@@ -18,7 +18,9 @@
 export default {
   props:['noticia'],
   data() {
-    return {};
+    return {
+      // noticia:null
+    };
   }
 };
 </script>
