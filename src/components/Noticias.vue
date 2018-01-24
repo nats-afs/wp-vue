@@ -5,8 +5,7 @@
         <div class="col s8">
           <div class="news-main">
             <h1>Noticias</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dolorem debitis numquam reprehenderit accusamus
-              quaerat labore, dolores eligendi! Quis ducimus tenetur in nemo quo impedit mollitia est ipsa incidunt doloremque.</p>
+            <p>Informate de lo sucedido en tu distrito</p>
             <router-view></router-view>
           </div>
         </div>
@@ -21,6 +20,15 @@
             <div class="news-list">
               <div class="col s12">
                 <h5>Ultimas Noticias</h5>
+                <div class="container">
+                  <div class="row">
+                    <div class="col s12">
+                      <div class="valign-wrapper">
+                        <preloader :loading="load"></preloader> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <noticiaitem v-for="noticia in news" :key="noticia.id" :noticia="noticia"></noticiaitem>
                 <div class="container more">
                   <div class="center-align">
@@ -37,12 +45,14 @@
 </template>
 <script>
 import noticiaitem from "./NoticiaItem.vue";
+import preloader from "./util/PreLoader.vue";
 import newitem from "./NewItem.vue";
 import { newsRef } from "../config/firebaseConfig";
 export default {
   components: {
     newitem,
-    noticiaitem
+    noticiaitem,
+    preloader
   },
   data() {
     return {
@@ -55,11 +65,29 @@ export default {
         actionLink2: "#",
         actionLinkText1: "Accion 1",
         actionLinkText2: "Accion 2"
-      }
+      },
+      load:false,
+      news: []
     };
   },
-  firebase:{
-    news: newsRef.limitToLast(5)
+  // firebase:{
+  //   news: newsRef.limitToLast(5)
+  // },
+  created() {
+    newsRef.on("child_added", data => this.addNews(data.key, data))
+    newsRef.on("child_changed", data => console.log('noticia modificada: ' + data.val().title) )
+  },
+  methods: {
+    addNews(id, data) {
+      this.load = true;
+      this.news.push({
+        uid: id,
+        title: data.val().title,
+        date: data.val().date,
+        image: data.val().image,
+        description: data.val().description
+      });
+    }
   }
 };
 </script>

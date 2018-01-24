@@ -1,10 +1,8 @@
 <template>
   <article>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto numquam perspiciatis quia et optio ex consequatur dignissimos deleniti libero fugit expedita, nisi dolor ab veritatis maiores totam odio placeat praesentium.
-    <!-- <h4>{{news.title}}</h4>
-    <small>{{news.date}}</small>
-    <img class="responsive-img" :src="news.image" alt="">
-    <p>{{news.description}}</p> -->
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea corrupti nesciunt, officia sit odio dolorum tempore aperiam ratione magnam nihil dolore labore quibusdam beatae. Culpa quaerat quo tempora ipsa! Exercitationem.</p>
+    <p>Necessitatibus non quia possimus, dicta facere illo labore, aspernatur, error voluptatem nobis inventore atque voluptatibus est ipsam ipsa beatae commodi maiores unde. Id dolor veniam excepturi cum rerum suscipit iure!</p>
+    <p>Dolor rerum asperiores perspiciatis corrupti culpa perferendis, dolores id? Nulla quibusdam repudiandae, aspernatur voluptatibus tempora minima inventore dolorem aut ea! Inventore, molestias? Animi reiciendis eos et perferendis nobis eveniet tempore.</p>
   </article>
 </template>
 <script>
@@ -15,15 +13,6 @@ export default {
       news: null
     }
   }
-  // ,
-  // firebase: function() {
-  //   return {
-  //     noticia: newsRef.limitToLast(1)
-  //   }
-  // },
-  // created(){
-  //   this.news = this.noticia
-  // }
 }
 </script>
 <style lang="scss" scoped>

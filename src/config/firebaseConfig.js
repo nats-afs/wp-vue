@@ -10,7 +10,7 @@ export const config = {
 }
 
 let app = firebase.initializeApp(config);
-let db = app.database()
+export const db = app.database()
 
 // export function firebaseListener(func) {
 // 	firebase.auth().onAuthStateChanged(function (user) {
