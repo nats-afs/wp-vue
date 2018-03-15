@@ -5,7 +5,7 @@
         <div class="col l6 s12">
           <h5 class="white-text">{{getTitle}}</h5>
           <p class="slogan">{{getSlogan}}</p>
-          <iconlink v-for="red in redesSociales" :red="red" :key="red.id"></iconlink>
+          <iconlink v-for="red in getRedesSociales" v-if="red.state" :red="red" :key="red.id"></iconlink>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">{{interestingLinks.title}}</h5>
@@ -30,30 +30,18 @@ export default {
     rootlink,
     iconlink
   },
-  data() {
-    return {
-    	// title:'Municipalidad Centro Poblado Santa Maria de Huachipa',
-    	// slogan:'!Trabajando por el cambio!',
-    	// copyright:'© 2017 Copyright Municipalidad del Centro Poblado Santa Maria de Huachipa',
-      interestingLinks:{
-        title:'Enlaces de interes',
-        links:[
-          { name:'Enlace 1', path:'#'},
-          { name:'Enlace 2', path:'#'},
-          { name:'Enlace 3', path:'#'},
-          { name:'Enlace 4', path:'#'}
-        ]
-      },
-      redesSociales: [
-        { name:'facebook', icon:'fa fa-2x fa-facebook',link:'https://www.facebook.com/municipalidaddehuachipa/'},
-        { name:'youtube', icon:'fa fa-2x fa-youtube-play',link:'https://www.youtube.com/channel/UCLZvENxowhzjA53nSRn8H-Q/videos'},
-        { name:'twitter', icon:'fa fa-2x fa-twitter',link:'#'},
-        { name:'instagram', icon:'fa fa-2x fa-instagram',link:'#'},
-        { name:'pinterest', icon:'fa fa-2x fa-pinterest',link:'#'}
-      ]
-    }
-  },
-  computed: mapGetters(['getTitle','getSlogan','getCopyright'])
+  data: ()=> ({
+        interestingLinks:{
+          title:'Enlaces de interes',
+          links:[
+            { name:'Enlace 1', path:'#'},
+            { name:'Enlace 2', path:'#'},
+            { name:'Enlace 3', path:'#'},
+            { name:'Enlace 4', path:'#'}
+          ]
+        },
+    }),
+  computed: mapGetters(['getTitle','getSlogan','getCopyright','getRedesSociales'])
 }
 
 </script>

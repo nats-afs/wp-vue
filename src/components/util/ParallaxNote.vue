@@ -29,4 +29,9 @@ export default {
     height: 600px;
   }
 }
+//@media only screen and (max-width: 992px) {
+//  .row{
+ //   display:none;
+  //}
+//}
 </style>

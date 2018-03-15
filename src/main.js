@@ -2,24 +2,19 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueFire from 'vuefire';
 import App from './App.vue';
+
+import VueLazyLoad from 'vue-lazyload'
+import VueTouch from 'vue-touch'
+
 // import ErrorPage from 'vue-error-page'
 import { store } from './store/store';
 import { routes } from './routes';
 
 Vue.use(VueRouter);
 Vue.use(VueFire)
-// window.eventBus = new Vue();
 
-// Vue.use(ErrorPage, {
-//   resolver: (component) => {
-//     return component;
-//   },
-//   tagName: 'app-view',
-//   bus: 'eventBus',
-//   event: 'error-page'
-// });
-
-
+Vue.use(VueLazyLoad)
+Vue.use(VueTouch, { name: 'v-touch' })
 
 const router = new VueRouter({
   mode: 'history',

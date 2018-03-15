@@ -1,19 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { orgRef } from '../config/firebaseConfig'
+import moment from "moment";
 Vue.use(Vuex);
 
+export const SET_ORG = 'SET_ORG'
 export const store = new Vuex.Store({
   state: {
-    title: 'Municipalidad Centro Poblado Santa Maria de Huachipa',
-    slogan: '¡Trabajando por el cambio!',
-    copyright: '© 2017 Copyright Municipalidad del Centro Poblado Santa Maria de Huachipa',
+    org: {},
     linksHeaderMovil: [],
     linksNavMovil: [],
     linksNav: [
       { name: "Inicio", path: "/" },
       { name: "Noticias", path: "/news" },
       { name: "Directorio", path: "/" },
-      { name: "Eventos", path: "/" },
+      { name: "Eventos", path: "/events" },
       {
         name: "Galeria",
         ref: "gall-dropdown",
@@ -24,8 +25,7 @@ export const store = new Vuex.Store({
       },
       { name: "Documentos", path: "/" }
     ],
-    linksHeader: [
-      {
+    linksHeader: [{
         name: 'Distrito',
         icon: 'fa fa-fw fa-institution',
         ref: 'dist-dropdown',
@@ -42,12 +42,12 @@ export const store = new Vuex.Store({
         ref: 'muni-dropdown',
         children: [
           { name: 'Alcalde', path: '/municipalidad/alcalde' },
+          { name: 'Teniente Alcalde', path: '/municipalidad/teniente-alcalde' },
           { name: 'Regidores', path: '/municipalidad/regidores' },
           { name: 'Funcionarios', path: '/municipalidad/funcionarios' },
           { name: 'Mision - Vision', path: '/municipalidad/mision-vision' }
         ]
-      }
-      ,
+      },
       {
         name: 'Servicios',
         icon: 'fa fa-fw fa-smile-o',
@@ -69,14 +69,23 @@ export const store = new Vuex.Store({
     ]
   },
   getters: {
+    getOrg: (state) => {
+      return state.org;
+    },
     getTitle: (state) => {
-      return state.title;
+      return state.org.name;
     },
     getSlogan: (state) => {
-      return state.slogan;
+      return state.org.slogan;
     },
-    getCopyright: state => {
-      return state.copyright;
+    getLogo:(state) => {
+      return state.org.imageValue
+    },
+    getCopyright: (state) => {
+      return "© " + moment().year() + " " + state.org.name
+    },
+    getRedesSociales: (state) => {
+      return state.org.redes
     },
     getLinksHeader: (state) => {
       return state.linksHeader;
@@ -91,6 +100,18 @@ export const store = new Vuex.Store({
     getLinksNavMovil: (state) => {
       state.linksNavMovil = state.linksNav;
       return state.linksNavMovil;
+    }
+  },
+  mutations: {
+    [SET_ORG]: (state, org) => {
+      state.org = org
+    }
+  },
+  actions: {
+    fetchOrg(context) {
+      return orgRef.on('value', snapshot => {
+        context.commit(SET_ORG, snapshot.val())
+      })
     }
   }
 });

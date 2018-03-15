@@ -75,6 +75,25 @@ nav.navbar-main {
     nav.navbar-main .dropdown-content li:hover, nav.navbar-main .dropdown-content li.active, nav.navbar-main .dropdown-content li.selected {
       background-color: #fff; }
 
+.VueCarousel-navigation a {
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+  .VueCarousel-navigation a.VueCarousel-navigation-prev {
+    left: 0;
+    transform: translateY(-50%) translateX(-50%); }
+  .VueCarousel-navigation a.VueCarousel-navigation-next {
+    right: 0;
+    transform: translateY(-50%) translateX(50%); }
+  .VueCarousel-navigation a:hover {
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+.VueCarousel-navigation i {
+  color: #003b8d;
+  margin: .25em; }
+
+.vue-lb-container {
+  z-index: 3000 !important; }
+
 .news-wrapper {
   margin: 3em auto; }
   .news-wrapper .news-title {
@@ -83,22 +102,6 @@ nav.navbar-main {
     position: relative; }
     .news-wrapper .news-content > .row {
       margin-bottom: 0; }
-    .news-wrapper .news-content .news-navigation {
-      position: relative; }
-      .news-wrapper .news-content .news-navigation a {
-        background-color: #fff;
-        position: absolute;
-        top: 50%;
-        margin-top: -180px; }
-        .news-wrapper .news-content .news-navigation a.news-nav-left {
-          left: -35px; }
-        .news-wrapper .news-content .news-navigation a.news-nav-right {
-          position: absolute;
-          right: -35px; }
-      .news-wrapper .news-content .news-navigation i {
-        color: #003b8d; }
-    .news-wrapper .news-content .carousel {
-      height: 320px !important; }
   .news-wrapper h2 {
     font-family: 'Lora', Arial, sans-serif;
     font-size: 30pt; }
@@ -116,55 +119,40 @@ nav.navbar-main {
     color: #003b8d;
     position: absolute;
     padding: 1.5em;
-    top: 50%;
+    top: 45%;
     width: 70%; }
     #notes .notes-wrapper a {
       color: #003b8d; }
   #notes p.flow-text {
     font-size: 1.1rem; }
 
-#events .events-wrapper {
+#events .events-wrapper, #eventos .events-wrapper {
   margin: 8em auto; }
-  #events .events-wrapper h1 {
+  #events .events-wrapper h1, #eventos .events-wrapper h1 {
     color: rgba(145, 139, 139, 0.39);
     font-size: 100pt;
     font-family: 'Lora', Arial, sans-serif;
     margin-bottom: -50px; }
-  #events .events-wrapper a {
+  #events .events-wrapper a, #eventos .events-wrapper a {
     margin: 0 auto; }
-    #events .events-wrapper a i {
+    #events .events-wrapper a i, #eventos .events-wrapper a i {
       vertical-align: middle; }
-    #events .events-wrapper a:hover {
+    #events .events-wrapper a:hover, #eventos .events-wrapper a:hover {
       color: #003b8d; }
-#events .events-content {
+#events .events-content, #eventos .events-content {
   position: relative; }
-  #events .events-content .card-image {
+  #events .events-content .card-image, #eventos .events-content .card-image {
     height: 100%;
     max-height: none; }
-    #events .events-content .card-image img {
+    #events .events-content .card-image img, #eventos .events-content .card-image img {
       height: inherit;
       width: 100%; }
-  #events .events-content .events-navigation {
-    position: relative; }
-    #events .events-content .events-navigation a {
-      background-color: #fff;
-      position: absolute;
-      top: 50%;
-      margin-top: -220px; }
-      #events .events-content .events-navigation a.events-nav-left {
-        left: -35px; }
-      #events .events-content .events-navigation a.events-nav-right {
-        position: absolute;
-        right: -35px; }
-    #events .events-content .events-navigation i {
-      color: #003b8d; }
-  #events .events-content .blue {
-    background-color: #003b8d !important;
+
+.blue {
+  background-color: #003b8d !important;
+  color: #fff; }
+  .blue a {
     color: #fff; }
-    #events .events-content .blue a {
-      color: #fff; }
-  #events .events-content .carousel {
-    height: 350px !important; }
 
 #media {
   margin: 0 auto 5em auto; }
@@ -220,9 +208,13 @@ footer.page-footer {
         header .header-wrapper .muni-logo p {
           display: none; }
 
+  .parallax-container {
+    height: 100%; }
+
   #notes .notes-wrapper {
     top: 15%;
-    width: 89%; }
+    width: 100%;
+    position: relative; }
 
   #nav-header {
     background-color: #003b8d; }

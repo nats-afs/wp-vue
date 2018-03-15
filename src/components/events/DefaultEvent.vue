@@ -6,7 +6,7 @@
   </article>
 </template>
 <script>
-import { newsRef } from "../config/firebaseConfig";
+// import { newsRef } from "../../config/firebaseConfig";
 export default {
   data() {
     return {

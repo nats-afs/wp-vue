@@ -2,27 +2,49 @@
 	<div class="col s12 m4 l4 lugares">
     <h4>{{title}}</h4>
 		<placeitem v-for="place in places" :key="place.id" :place="place"></placeitem>	
+    <div class="center-align">
+      <router-link to="places" class="waves-effect btn-flat">{{moreText}} <i class="material-icons">more_horiz</i></a> </router-link> 
+    </div>
 	</div>
 </template>
 
 <script>
+import {placeRef} from "../config/firebaseConfig"
 import placeitem from './PlaceItem.vue'
 export default {
   components:{
     placeitem
   },
-  data () {
-    return {
-      title:'Lugares',
-    	places:[
-    		{name:'Plaza Mayor',address:'El Club II Etapa Mz. I-2',schedule:'Todos los dias 8am - 6pm',link:'#',imgPath:'/src/assets/img/img1s.jpg'},
-    		{name:'Club Sparza',address:'Calle 1 Huachipa Norte',schedule:'Todos los dias 8am - 6pm',link:'#',imgPath:'/src/assets/img/img2s.jpg'},
-    		{name:'Iglesia Santa Maria',address:'Av. Las Perdices 321',schedule:'Todos los dias 8am - 6pm',link:'#',imgPath:'/src/assets/img/img3s.jpg'}
-    	]
+  data: () => ({
+    title: 'Lugares',
+    moreText: 'Mas',
+    places: []
+  }),
+  mounted(){
+    placeRef.limitToLast(3).on('value', snapshot => {
+      this.addPlaces(snapshot.val())
+    })
+  },
+  methods:{
+    addPlaces(data){
+      this.places = []
+      for(let key in data){
+        this.places.push({
+          uid:key,
+          title: data[key].title,
+          address: data[key].address,
+          image: data[key].imageValue
+        })
+      }
     }
   }
 }
 </script>
-
-<style>
+<style lang="scss" scoped>
+.linkToPlaces{
+  color: #000;
+}
+i{
+  vertical-align:middle;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
 <section class="municipalidad">
-      <div class="container">
+      <div class="">
         <div class="row">
           <div class="col s8 mision-vision">
             <h5>MISIÓN INSTITUCIONAL</h5>

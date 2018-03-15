@@ -1,23 +1,31 @@
 <template>
-  <div class="container">
-      <h1>Funcionarios</h1>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus minima, molestiae et autem fugit, eveniet dolore quae possimus consequatur, repellendus obcaecati! Quod ipsa, illum autem facere maiores necessitatibus explicabo provident.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio id quos soluta iusto delectus molestias eos adipisci minima maxime, nobis saepe ut, eligendi illum. Nihil, perspiciatis dolorem. Dolor, porro nobis!</p>
-      <h4>Funcionario 1</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure fugit officiis asperiores error blanditiis nemo quae vel? Magni consectetur qui pariatur at! Asperiores perferendis sunt accusamus deleniti, minima quo?</p>
-      <h4>Funcionario 2</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure fugit officiis asperiores error blanditiis nemo quae vel? Magni consectetur qui pariatur at! Asperiores perferendis sunt accusamus deleniti, minima quo?</p>
-      <h4>Funcionario 3</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure fugit officiis asperiores error blanditiis nemo quae vel? Magni consectetur qui pariatur at! Asperiores perferendis sunt accusamus deleniti, minima quo?</p>
-      <h4>Funcionario 4</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure fugit officiis asperiores error blanditiis nemo quae vel? Magni consectetur qui pariatur at! Asperiores perferendis sunt accusamus deleniti, minima quo?</p>
-      <h4>Funcionario 5</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum iure fugit officiis asperiores error blanditiis nemo quae vel? Magni consectetur qui pariatur at! Asperiores perferendis sunt accusamus deleniti, minima quo?</p>
+  <div class="">
+    <h3>Funcionarios</h3>
+    <div class="divider"></div>
+    <div class="content">
+      <div v-for="i in 22" :key=i class="row">
+        <div class="col s4">
+          <img src="../../assets/img/funcionario.jpg" alt="" class="responsive-img">
+        </div>
+        <div class="col s8">
+          <h5>Funcionario {{i}}</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quibusdam atque consequuntur incidunt consequatur, suscipit, assumenda perspiciatis omnis laboriosam deleniti, quaerat et. Dolor quaerat, harum nostrum quia accusamus commodi eius?</p>
+          <p>Blanditiis perferendis ipsum laboriosam unde velit optio sint similique. Optio libero cumque distinctio iure. Accusamus ab ratione deserunt maxime assumenda incidunt, illum perspiciatis et. Sunt earum corrupti voluptatum dicta quisquam.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-export default {
-  
-}
+export default {};
 </script>
+<style lang="scss" scoped>
+.content {
+  margin: 3em 0;
+  .row {
+    margin: 3em 0;
+  }
+}
+</style>
+
 

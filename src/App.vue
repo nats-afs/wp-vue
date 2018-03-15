@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="show">
     <ownheader></ownheader>
     <ownnav></ownnav>
     <main>
@@ -7,20 +7,29 @@
     </main>
     <ownfooter></ownfooter>
   </div>
+  <notfound v-else></notfound>
 </template>
 <script>
+import {mapActions} from 'vuex'
+
 import ownheader from "./components/OwnHeader.vue";
 import ownnav from "./components/OwnNav.vue";
 import ownfooter from "./components/OwnFooter.vue";
+import notfound from './components/NotFound.vue'
 export default {
   components: {
     ownheader,
     ownnav,
-    ownfooter
+    ownfooter,
+    notfound
   },
-  data() {
-    return {};
-  }
+  data:()=>({
+    show:true
+  }),
+  created(){
+    this.fetchOrg()
+  },
+  methods: mapActions(['fetchOrg'])
 };
 </script>
 <style>

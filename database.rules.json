@@ -1,7 +1,10 @@
 {
   "rules": {
     ".read": true,
-    ".write": true
+    ".write": true,
+    "news": {
+      ".indexOn": ["featured", "date"]
+    }
   }
 }
 /*{

@@ -8,33 +8,43 @@
         <span class="card-title activator grey-text text-darken-4">{{newitem.title}}
           <i class="material-icons right">more_vert</i>
         </span>
-        <p>
+        <!-- <p>
           <a :href="newitem.link">{{newitem.linkText}}</a>
-        </p>
+        </p> -->
       </div>
       <div class="card-action">
-        <a :href="newitem.actionLink1">{{newitem.actionLinkText1}}</a>
-        <a :href="newitem.actionLink2">{{newitem.actionLinkText2}}</a>
+        <router-link :to="{ name: 'news-detail', params: {uid: newitem.uid}}">Leer mas</router-link>
+        <!-- <a :href="newitem.actionLink2">{{newitem.actionLinkText2}}</a> -->
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">{{newitem.title}}
           <i class="material-icons right">close</i>
         </span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        <p>{{newitem.description}}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
-  export default {
-    props: ['newitem'],
-    data() {
-      return {
-
-      }
+export default {
+  props: ["newitem"],
+  data: () => ({})
+};
+</script>
+<style lang="scss" scoped>
+.card.sticky-action  {
+  img{
+    height: 200px;
+  }
+  .card-content{
+    height: 150px;
+  }
+  .card-reveal {
+    p {
+      font-size: 14px;
+      font-weight: normal;
+      color: rgba(0, 0, 0, 0.71);
     }
   }
-
-</script>
-<style>
+}
 </style>

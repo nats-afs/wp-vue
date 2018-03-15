@@ -1,10 +1,11 @@
 <template>
-  <div class="col s4">
+  <div class="col s12 m3 l3">
     <div class="container">
       <h5>{{note.title}}</h5>
       <p class="flow-text">{{note.smallDescription}}</p>
       <ul>
-        <rootlink v-for="item in note.items" :link="item" :key="item.id"></rootlink>
+        <!-- <rootlink v-for="item in note.items" :link="item" :key="item.id"></rootlink> -->
+        <a href="#" v-for="item in note.items"> {{item.name}}</a>
       </ul>
     </div>
   </div>
@@ -19,7 +20,8 @@ export default {
 }
 
 </script>
-<style>
-
-
+<style lang="scss" scoped>
+a{
+  display:block;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
-<div class="container">
-    <h1>Historia</h1>
+<div class="">
+    <h4>Historia</h4>
     <div class="divider"></div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore inventore repellat consectetur cum autem debitis temporibus adipisci suscipit quam labore dignissimos commodi ut rerum soluta, quo totam dolor harum! Architecto.</p>
     <p>Praesentium quisquam dignissimos laudantium nemo error. Saepe optio fuga tenetur odit, harum porro rerum ipsa expedita, laborum incidunt illo sunt autem tempore sequi natus accusamus culpa nostrum dolorum perspiciatis voluptatem.</p>

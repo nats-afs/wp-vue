@@ -6,108 +6,28 @@
           <div class="">
             <h2>{{title}}</h2>
             <p class="flow-text">{{description}}</p>
-            <a class="waves-effect btn-flat">Leer mas <i class="material-icons">more_horiz</i></a>
+            <router-link to='/news' class="btn-flat">Leer mas
+              <i class="material-icons">more_horiz</i>
+            </router-link>
           </div>
         </div>
-        <carouselnews :news="news"></carouselnews>
+        <carouselnews></carouselnews>
       </div>
     </div>
   </section>
 </template>
 <script>
 import carouselnews from "./CarouselNews.vue";
+// import { newsRef } from "../config/firebaseConfig";
 export default {
   components: {
     carouselnews
   },
-  data() {
-    return {
-      title: "Ultimas Noticias",
-      description: "Informese sobre las nuevas noticias de su ciudad",
-      news: [
-        {
-          title: "Noticia 1",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        },
-        {
-          title: "Noticia 2",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        },
-        {
-          title: "Noticia 3",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        },
-        {
-          title: "Noticia 4",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        },
-        {
-          title: "Noticia 1",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        },
-        {
-          title: "Noticia 2",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        },
-        {
-          title: "Noticia 3",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        },
-        {
-          title: "Noticia 4",
-          imgPath: "/src/assets/img/200.jpg",
-          link: "#",
-          linkText: "Enlace 1",
-          actionLink1: "#",
-          actionLink2: "#",
-          actionLinkText1: "Accion 1",
-          actionLinkText2: "Accion 2"
-        }
-      ]
-    };
-  }
+  data: () => ({
+    title: "Ultimas Noticias",
+    description: "Informese sobre las nuevas noticias de su ciudad"
+    // news: []
+  })
 };
 </script>
 <style <style lang="scss" scoped>

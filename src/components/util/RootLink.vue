@@ -6,16 +6,7 @@
 
 <script>
 export default {
-
 	props:['link']
-
-  // data () {
-  //   return {
-  //   	name:'Distrito',
-  //   	icon:'fa fa-fw fa-institution',
-  //   	link:'distrito.html'
-  //   }
-  // }
 }
 </script>
 

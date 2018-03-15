@@ -6,10 +6,13 @@
     <div class="card-stacked">
       <div class="card-content">
         <h6 class="news-title">{{noticia.title}}</h6>
+        <div class="divider"></div>
+        <router-link :to="{name:'news-detail', params: {uid: noticia.uid}}">{{noticia.category}}</router-link>
+        <div class="divider"></div>
         <small>{{noticia.date}}</small>
       </div>
       <div class="card-action">
-        <router-link :to="{ name: 'detail', params: {uid: noticia.uid, news: noticia}}">Leer mas</router-link>
+        <router-link :to="{ name: 'news-detail', params: {uid: noticia.uid}}">Leer mas</router-link>
       </div>
     </div>
   </div>

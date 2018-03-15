@@ -1,75 +1,53 @@
-import OwnMain from './components/OwnMain.vue';
-// municipalidad componentes
-import Municipalidad from './components/municipalidad/Municipalidad.vue';
-import Alcalde from './components/municipalidad/Alcalde.vue';
-import Regidores from './components/municipalidad/Regidores.vue';
-import Funcionarios from './components/municipalidad/Funcionarios.vue';
-import MisionVision from './components/municipalidad/MisionVision.vue';
-// end municipalidad compoentes
-// distrito componentes
-import Distrito from './components/distrito/Distrito.vue';
-import CreacionPolitica from './components/distrito/CreacionPolitica.vue';
-import Historia from './components/distrito/Historia.vue';
-import Turismo from './components/distrito/Turismo.vue';
-import Ecologia from './components/distrito/Ecologia.vue';
-// end distrito componentes
-// servicio components
-import Servicio from './components/servicios/Servicio.vue';
-import Servicio1 from './components/servicios/Servicio1.vue';
-import Servicio2 from './components/servicios/Servicio2.vue';
-// end servicio components
-// mas components
-import Mas from './components/mas/Mas.vue';
-import Mas1 from './components/mas/Mas1.vue';
-import Mas2 from './components/mas/Mas2.vue';
-// end mas components
-import Noticias from './components/Noticias.vue'
-import DefaultNew from './components/DefaultNew.vue'
-import NewsDetail from './components/NewsDetail.vue'
-
-// forms
-import NewsForm from './components/forms/NewsForm'
-
-import NotFound from './components/NotFound.vue'
+import NotFound from './components/NotFound.vue';
 
 export const routes = [
-    { path: '*', component: NotFound },
-    {
-        path: '/municipalidad', name:'municipio', component: Municipalidad, children: [
-            { path: 'alcalde', name:'alcalde', component: Alcalde },
-            { path: 'regidores', name:'regidores', component: Regidores },
-            { path: 'funcionarios', name:'funcionarios', component: Funcionarios },
-            { path: 'mision-vision', name:'mision-vision', component: MisionVision },
-        ]
-    },
-    {
-        path: '/distrito',  component: Distrito, children: [
-            { path: 'creacion', component: CreacionPolitica },
-            { path: 'historia', component: Historia },
-            { path: 'turismo', component: Turismo },
-            { path: 'ecologia', component: Ecologia },
-        ]
-    },
-    {
-        path: '/servicios', component: Servicio, children: [
-            { path: 'servicio-1', component: Servicio1 },
-            { path: 'servicio-2', component: Servicio2 },
-        ]
-    },
-    {
-        path: '/mas', component: Mas, children: [
-            { path: 'mas-1', component: Mas1 },
-            { path: 'mas-2', component: Mas2 }
-        ]
-    },
-    // navbar
-    { path: '/', name:'inicio', component: OwnMain },
-    {
-        path: '/news', component: Noticias, children: [
-            { path: '', component: DefaultNew },
-            { path: ':uid', name: 'detail', component: NewsDetail, props:true}
-        ]
-    },
-    // formulario
-    { path: '/form', component: NewsForm }
+  { path: '*', component: NotFound },
+  { path: '/', name: 'inicio', component: () => import('./components/OwnMain') },
+  {
+    path: '/municipalidad', name: 'municipio', component: () => import('./components/municipalidad/Municipalidad'), children: [
+      { path: 'alcalde', name: 'alcalde', component: () => import('./components/municipalidad/Alcalde') },
+      { path: 'teniente-alcalde', name: 'teniente', component: () => import('./components/municipalidad/TenienteAlcalde') },
+      { path: 'regidores', name: 'regidores', component: () => import('./components/municipalidad/Regidores') },
+      { path: 'funcionarios', name: 'funcionarios', component: () => import('./components/municipalidad/Funcionarios') },
+      { path: 'mision-vision', name: 'mision-vision', component: () => import('./components/municipalidad/MisionVision') },
+    ]
+  },
+  {
+    path: '/distrito', component: () => import('./components/distrito/Distrito'), children: [
+      { path: 'creacion', component: () => import('./components/distrito/CreacionPolitica') },
+      { path: 'historia', component: () => import('./components/distrito/Historia') },
+      { path: 'turismo', component: () => import('./components/distrito/Turismo') },
+      { path: 'ecologia', component: () => import('./components/distrito/Ecologia') },
+    ]
+  },
+  {
+    path: '/servicios', component: () => import('./components/servicios/Servicio'), children: [
+      { path: 'servicio-1', component: () => import('./components/servicios/Servicio1') },
+      { path: 'servicio-2', component: () => import('./components/servicios/Servicio2') },
+    ]
+  },
+  {
+    path: '/mas', component: () => import('./components/mas/Mas'), children: [
+      { path: 'mas-1', component: () => import('./components/mas/Mas1') },
+      { path: 'mas-2', component: () => import('./components/mas/Mas2') }
+    ]
+  },
+  {
+    path: '/news', component: () => import('./components/news/Noticias'), children: [
+      { path: '', component: () => import('./components/news/DefaultNew') },
+      { path: ':uid', name: 'news-detail', component: () => import('./components/news/NewsDetail'), props: true }
+    ]
+  },
+  {
+    path: '/events', component: () => import('./components/events/Events'), children: [
+      { path: '', component: () => import('./components/events/DefaultEvent') },
+      { path: ':uid', name: 'event-detail', component: () => import('./components/events/EventDetail'), props: true }
+    ]
+  },
+  {
+    path: '/places', component: () => import('./components/places/Places'), children: [
+      { path: '', component: () => import('./components/places/PlaceDefault') },
+      { path: ':uid', name: 'place-detail', component: () => import('./components/places/PlaceDetail'), props: true }
+    ]
+  }
 ];

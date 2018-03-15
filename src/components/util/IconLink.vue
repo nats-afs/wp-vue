@@ -1,5 +1,5 @@
 <template>
-	<a :href="red.link" :alt="red.name" target="_blank"><i :class="red.icon" aria-hidden="true"></i></a>
+	<a :href="red.url" :alt="red.name" target="_blank"><i :class="red.icon" aria-hidden="true"></i></a>
 </template>
 
 <script>

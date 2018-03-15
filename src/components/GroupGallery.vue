@@ -9,18 +9,15 @@
     </div>
   </div>
 </template>
-
-  <script>
-  import galleryitem from './GalleryItem.vue'
-  export default {
-    props:['gallery'],
-    components: {
-      galleryitem
-    }
+<script>
+import galleryitem from './GalleryItem.vue'
+export default {
+  props:['gallery'],
+  components: {
+    galleryitem
   }
+}
+</script>
+<style>
 
-  </script>
-  <style>
-
-
-  </style>
+</style>

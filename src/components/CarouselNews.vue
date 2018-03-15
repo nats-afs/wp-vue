@@ -1,55 +1,101 @@
 <template>
   <div class="col s12 m8 l8 news-content">
     <div class="row">
-      <div class="carousel">
-        <newitem v-for="newitem in news" :newitem="newitem" :key="newitem.id" class=" m6 l4 carousel-item"></newitem>
+      <div v-if=load class="container">
+        <div class="row">
+          <div class="col s12">
+            <div class="valign-wrapper">
+              <preloader></preloader>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="news-navigation hide-on-small-only">
-      <a @click="next" class="news-nav-left btn-floating btn-large waves-effect waves-light">
-        <i class="material-icons">arrow_back</i>
-      </a>
-      <a @click="prev" class="news-nav-right btn-floating btn-large waves-effect waves-light">
-        <i class="material-icons">arrow_forward</i>
-      </a>
+      <carousel v-else :perPageCustom=perPage :paginationEnabled=paginationEnabled :autoplayHoverPause=hover :navigationEnabled=navigation :navigationNextLabel=next :navigationPrevLabel=prev :autoplay=play :loop=play>
+        <slide v-for="newitem in news" :key="newitem.id">
+          <newitem :newitem="newitem" ></newitem>
+        </slide>
+      </carousel>
     </div>
   </div>
 </template>
 <script>
-  import newitem from "./NewItem.vue";
-  export default {
-    components: {
-      newitem
-    },
-    props: ['news'],
-    data() {
-      return {};
-    },
-    mounted: function () {
-      var self = this;
-      $(this.$el).carousel({
-        fullWidth: true,
-        dist: 0,
-        shift: 0,
-        padding: 20
-      });
-    },
-    beforeDestroy: function () {
-      $(this.$el).carousel('destroy');
-    },
-    methods: {
-      next() {
-        $(this.$el).carousel("next");
-      },
-      prev() {
-        $(this.$el).carousel("prev");
+import { Carousel, Slide } from "vue-carousel";
+import { newsRef } from "../config/firebaseConfig";
+import newitem from "./NewItem.vue";
+import debounce from "./util/debounce";
+import preloader from "./util/Preloader.vue";
+export default {
+  components: {
+    newitem,
+    Carousel,
+    Slide,
+    preloader
+  },
+  data: () => ({
+    news: [],
+    perPage: [[360, 1], [768, 2], [1024, 3]],
+    paginationEnabled: false,
+    play: true,
+    hover: true,
+    navigation: true,
+    prev: '<i class="material-icons">arrow_back</i>',
+    next: '<i class="material-icons">arrow_forward</i>',
+    browserWidth: null,
+    load: false
+  }),
+  created: function() {
+    this.load = true;
+    newsRef.limitToLast(10).on("value", snapshot => {
+      this.addNews(snapshot.val());
+      this.load = false;
+    });
+  },
+  watch: {
+    browserWidth: function() {
+      if (this.browserWidth <= 768) {
+        this.navigation = false;
+        this.play = false;
+      } else {
+        this.navigation = true;
+        this.play = true;
       }
     }
-  };
-</script>
-
-<style lang="scss" scoped>
-  .news-content {
-    height: inherit !important;
+  },
+  mounted() {
+    window.addEventListener(
+      "resize",
+      debounce(this.onResize, this.refreshRate)
+    );
+    this.getBrowserWidth();
+  },
+  methods: {
+    getBrowserWidth() {
+      this.browserWidth = window.innerWidth;
+      return this.browserWidth;
+    },
+    onResize() {
+      this.getBrowserWidth();
+    },
+    addNews(data) {
+      this.news = []
+      this.load = true;
+      for (let key in data) {
+        this.news.push({
+          uid: key,
+          title: data[key].title,
+          category: data[key].category,
+          date: data[key].date,
+          imgPath: data[key].image,
+          description: data[key].description
+        });
+      }
+      this.news.reverse();
+    }
   }
+};
+</script>
+<style lang="scss" scoped>
+.news-content {
+  height: inherit !important;
+}
 </style>

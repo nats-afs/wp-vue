@@ -1,55 +1,63 @@
 <template>
   <div class="col s12 m4 l4 galeria">
     <h4>{{title}}</h4>
-		<groupgallery v-for="gallery in galleries" :key="gallery.id" :gallery="gallery"></groupgallery>	
+    <div class="row" v-if="gallery.length">
+    	<div class="col s4">
+    		<img class="responsive-img" :src="randomImage.src" :alt="randomImage.caption" @click="openGallery">
+				<lightbox :images="gallery" ref="lightbox" :show-caption="true" :showLightBox="false"></lightbox>
+    	</div>
+    	<div class="col 8">
+    		<h5>Mensaje</h5>
+    	</div>
+    </div>
   </div>
 </template>
 <script>
+	import {galleryRef} from "../config/firebaseConfig"
+	import Lightbox from 'vue-image-lightbox'
+	require('vue-image-lightbox/dist/vue-image-lightbox.min.css')
 	import groupgallery from './GroupGallery.vue'
 	export default{
 		components:{
-			groupgallery
+			groupgallery,
+			Lightbox
 		},
-		data(){
-			return {
-				title:'Ultimas fotos',
-				galleries:[
-					{
-						place: 'Palacio Municipal',
-		        date: '13 de Enero',
-		        items: [
-		          { smallPath: '/src/assets/img/img1s.jpg', bigPath: '/src/assets/img/img1b.jpg', group: 'gallery1', caption: 'caption 1' , main: false},
-		          { smallPath: '/src/assets/img/img2s.jpg', bigPath: '/src/assets/img/img2b.jpg', group: 'gallery1', caption: 'caption 2' , main: true},
-		          { smallPath: '/src/assets/img/img3s.jpg', bigPath: '/src/assets/img/img3b.jpg', group: 'gallery1', caption: 'caption 3' , main: false},
-		          { smallPath: '/src/assets/img/img4s.jpg', bigPath: '/src/assets/img/img4b.jpg', group: 'gallery1', caption: 'caption 4' , main: false}
-		        ]					
-					},
-					{
-						place: 'Palacio Municipal',
-		        date: '13 de Enero',
-		        items: [
-		          { smallPath: '/src/assets/img/img1s.jpg', bigPath: '/src/assets/img/img1b.jpg', group: 'gallery1', caption: 'caption 1' , main: false},
-		          { smallPath: '/src/assets/img/img2s.jpg', bigPath: '/src/assets/img/img2b.jpg', group: 'gallery1', caption: 'caption 2' , main: true},
-		          { smallPath: '/src/assets/img/img3s.jpg', bigPath: '/src/assets/img/img3b.jpg', group: 'gallery1', caption: 'caption 3' , main: false},
-		          { smallPath: '/src/assets/img/img4s.jpg', bigPath: '/src/assets/img/img4b.jpg', group: 'gallery1', caption: 'caption 4' , main: false}
-		        ]					
-					},
-					{
-						place: 'Palacio Municipal',
-		        date: '13 de Enero',
-		        items: [
-		          { smallPath: '/src/assets/img/img1s.jpg', bigPath: '/src/assets/img/img1b.jpg', group: 'gallery1', caption: 'caption 1' , main: false},
-		          { smallPath: '/src/assets/img/img2s.jpg', bigPath: '/src/assets/img/img2b.jpg', group: 'gallery1', caption: 'caption 2' , main: true},
-		          { smallPath: '/src/assets/img/img3s.jpg', bigPath: '/src/assets/img/img3b.jpg', group: 'gallery1', caption: 'caption 3' , main: false},
-		          { smallPath: '/src/assets/img/img4s.jpg', bigPath: '/src/assets/img/img4b.jpg', group: 'gallery1', caption: 'caption 4' , main: false}
-		        ]					
-					}
-				]
-			}
-		}
+		data: () => ({
+			title: 'Ultimas Fotos',
+			gallery: []
+		}),
+		created() {
+	    galleryRef.limitToLast(15).orderByChild('group').on('value', snapshot => {
+	    	this.setPictures(snapshot.val())
+	    })
+  	},
+	  methods: {
+	  	setPictures(data){
+	  		this.gallery = []
+	  		for(let key in data){
+	  			this.gallery.push({
+	  				caption: data[key].caption,
+	          group: data[key].group,
+	          src: data[key].src,
+	          thumb: data[key].thumb
+	  			})
+	  		}
+	  	},
+	      openGallery() {
+	      this.$refs.lightbox.showImage(1)
+	    }
+	  },
+	  computed:{
+	  	randomImage(){
+	  		let size = this.gallery.length
+	  		let indice = Math.floor(Math.random() * size); 
+	  		return this.gallery[indice]
+	  	}
+	  }
 	}
 
 </script>
+
 <style>
 
 

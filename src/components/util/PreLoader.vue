@@ -1,11 +1,13 @@
 <template>
-  <div v-if="!loading" class="preloader-wrapper big active">
+  <div class="preloader-wrapper big active">
     <div class="spinner-layer spinner-blue-only">
       <div class="circle-clipper left">
         <div class="circle"></div>
-      </div><div class="gap-patch">
+      </div>
+      <div class="gap-patch">
         <div class="circle"></div>
-      </div><div class="circle-clipper right">
+      </div>
+      <div class="circle-clipper right">
         <div class="circle"></div>
       </div>
     </div>
@@ -13,6 +15,11 @@
 </template>
 <script>
 export default {
-  props:['loading']
-}
+  data: () => ({})
+};
 </script>
+<style lang="scss">
+.preloader-wrapper {
+  margin: 0 auto;
+}
+</style>

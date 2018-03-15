@@ -76,6 +76,7 @@ blockquote {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(128, 28, 16, 0.1), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(128, 28, 16, 0.1), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
+
 nav.navbar-main {
   background-color: transparent;
   box-shadow: none;
@@ -106,6 +107,35 @@ nav.navbar-main {
   }
 }
 
+.VueCarousel-navigation{
+  a {
+    background-color: $primary-text-color;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    // position: absolute;
+    // top: 50%;
+    // margin-top: -180px;
+    &.VueCarousel-navigation-prev {
+      left: 0;
+      transform: translateY(-50%) translateX(-50%);
+    }
+    &.VueCarousel-navigation-next {
+      right: 0;
+      transform: translateY(-50%) translateX(50%);
+    }
+    &:hover{
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  i {
+    color: $primary-fill-color;
+    margin: .25em;
+  }  
+}
+
+.vue-lb-container{
+  z-index: 3000 !important;
+}
 
 .news-wrapper {
   margin: 3em auto;
@@ -113,31 +143,9 @@ nav.navbar-main {
     padding: 3em 2em;
   }
   .news-content {
+    position: relative;
     &>.row {
       margin-bottom: 0;
-    }
-    position: relative;
-    .news-navigation {
-      position: relative;
-      a {
-        background-color: $primary-text-color;
-        position: absolute;
-        top: 50%;
-        margin-top: -180px;
-        &.news-nav-left {
-          left: -35px;
-        }
-        &.news-nav-right {
-          position: absolute;
-          right: -35px;
-        }
-      }
-      i {
-        color: $primary-fill-color;
-      }
-    }
-    .carousel {
-      height: 320px !important;
     }
   }
   h2 {
@@ -162,8 +170,9 @@ nav.navbar-main {
     color: $primary-fill-color;
     position: absolute;
     padding: 1.5em;
-    top: 50%;
+    top: 45%;
     width: 70%;
+    // margin-top: -20em;
     a {
       color: $primary-fill-color;
     }
@@ -173,7 +182,7 @@ nav.navbar-main {
   }
 }
 
-#events {
+#events, #eventos {
   .events-wrapper {
     margin: 8em auto;
     h1 {
@@ -202,35 +211,17 @@ nav.navbar-main {
         width: 100%;
       }
     }
-    .events-navigation {
-      position: relative;
-      a {
-        background-color: $primary-text-color;
-        position: absolute;
-        top: 50%;
-        margin-top: -220px;
-        &.events-nav-left {
-          left: -35px;
-        }
-        &.events-nav-right {
-          position: absolute;
-          right: -35px;
-        }
-      }
-      i {
-        color: $primary-fill-color;
-      }
-    }
-    .blue {
-      background-color: $primary-fill-color !important;
-      color: $primary-text-color;
-      a {
-        color: $primary-text-color;
-      }
-    }
-    .carousel{
-      height: 350px !important;
-    }
+    // .carousel{
+    //   height: 350px !important;
+    // }
+  }
+}
+
+.blue {
+  background-color: $primary-fill-color !important;
+  color: $primary-text-color;
+  a {
+    color: $primary-text-color;
   }
 }
 
@@ -306,10 +297,15 @@ footer.page-footer {
       }
     }
   }
+  .parallax-container{
+    height: 100%;
+  }
   #notes {
     .notes-wrapper {
       top: 15%;
-      width: 89%;
+      width: 100%;
+      position: relative;
+      // margin-top: -25em;
     }
   }
   #nav-header {
