@@ -19,6 +19,7 @@
     "vue-carousel": "^0.6.5",
     "vue-image-lightbox": "^5.5.3",
     "vue-lazyload": "^1.2.1",
+    "vue-pdf": "^3.2.2",
     "vue-router": "^3.0.1",
     "vue-touch": "^2.0.0-beta.4",
     "vuefire": "^1.4.5",

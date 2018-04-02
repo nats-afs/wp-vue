@@ -9,8 +9,7 @@ export const config = {
   messagingSenderId: "125263969340"
 }
 
-let app = firebase.initializeApp(config);
-export const db = app.database()
+let app = firebase.initializeApp(config); //INITIALIZE FIREBASE
 
 // export function firebaseListener(func) {
 // 	firebase.auth().onAuthStateChanged(function (user) {
@@ -26,10 +25,23 @@ export const db = app.database()
 // 	});
 // }
 
+//FIREBASE STORAGE
+export const storage = app.storage() //INITIALIZE STORAGE
+
+let storageRef = storage.ref()
+
+export const docsStoreRef = storageRef.child('documents')
+
+// 
+// REALTIME DATABASE
+export const db = app.database() //INITIALIZE DATABASE
+
 export const galleryRef = db.ref('gallery');
 export const placeRef = db.ref('place');
 export const orgRef = db.ref('org');
 export const newsRef = db.ref('news');
 export const noteRef = db.ref('note');
 export const eventRef = db.ref('event');
+// 
+
 // export const firebaseAuth = firebase.auth;

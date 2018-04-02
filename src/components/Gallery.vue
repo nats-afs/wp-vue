@@ -1,14 +1,20 @@
 <template>
   <div class="col s12 m4 l4 galeria">
-    <h4>{{title}}</h4>
     <div class="row" v-if="gallery.length">
-    	<div class="col s4">
-    		<img class="responsive-img" :src="randomImage.src" :alt="randomImage.caption" @click="openGallery">
+    	<div class="container">
+    		<h4>{{title}}</h4>
+    		<div class="">
+    			<template v-for="picture in gallery">
+    				<div class="col s6 picture-box">
+    					<img class="responsive-img" :src="picture.src" :alt="picture.caption" @click="openGallery">
+    				</div>
+    			</template>
+    		</div>
 				<lightbox :images="gallery" ref="lightbox" :show-caption="true" :showLightBox="false"></lightbox>
     	</div>
-    	<div class="col 8">
-    		<h5>Mensaje</h5>
-    	</div>
+    </div>
+   	<div class="center-align">
+      <router-link to="gallery" class="waves-effect btn-flat">{{moreText}} <i class="material-icons">more_horiz</i></a> </router-link> 
     </div>
   </div>
 </template>
@@ -24,10 +30,11 @@
 		},
 		data: () => ({
 			title: 'Ultimas Fotos',
+			moreText: 'Mas',
 			gallery: []
 		}),
 		created() {
-	    galleryRef.limitToLast(15).orderByChild('group').on('value', snapshot => {
+			galleryRef.limitToLast(8).orderByChild('group').on('value', snapshot => {
 	    	this.setPictures(snapshot.val())
 	    })
   	},
@@ -48,17 +55,22 @@
 	    }
 	  },
 	  computed:{
-	  	randomImage(){
-	  		let size = this.gallery.length
-	  		let indice = Math.floor(Math.random() * size); 
-	  		return this.gallery[indice]
-	  	}
+
 	  }
 	}
 
 </script>
 
-<style>
-
-
+<style lang="scss" scoped>
+.picture-box{
+	padding: 0 .15em !important;
+	width: inherit;
+}
+img.responsive-img{
+	height: 90px;
+	width: 100%;
+}
+i{
+  vertical-align:middle;
+}
 </style>

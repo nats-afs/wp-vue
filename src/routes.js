@@ -3,6 +3,7 @@ import NotFound from './components/NotFound.vue';
 export const routes = [
   { path: '*', component: NotFound },
   { path: '/', name: 'inicio', component: () => import('./components/OwnMain') },
+  { path: '/gallery', name: 'gallery', component: () => import('./components/gallery/Gallery') },
   {
     path: '/municipalidad', name: 'municipio', component: () => import('./components/municipalidad/Municipalidad'), children: [
       { path: 'alcalde', name: 'alcalde', component: () => import('./components/municipalidad/Alcalde') },

@@ -10,14 +10,13 @@
 import documentitem from './DocumentItem.vue'
 export default {
   components: {
-    documentitem
+    documentitem,
   },
   // ulr para consultar archivos http://www.munihuachipa.gob.pe/images/Documentos_Gestion/
   mounted() {
     console.log('Capturando archivos de carpeta| Fetching files on directory');
   },
-  data() {
-    return {
+  data: () => ({
       title: 'Ultimos Documentos',
       files: [
         { path: 'http://www.munihuachipa.gob.pe/images/Documentos_Gestion/autoridades_cpsmh.pdf', name: 'autoridades_mcpsmh' },
@@ -26,10 +25,8 @@ export default {
         { path: '#', name: 'DocumentosGestion4' },
         { path: '#', name: 'DocumentosGestion5' }
       ]
-    }
-  }
+  }),
 }
-
 </script>
 <style>
 

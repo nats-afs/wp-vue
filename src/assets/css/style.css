@@ -154,6 +154,9 @@ nav.navbar-main {
   .blue a {
     color: #fff; }
 
+.vue-lb-arrow {
+  background-color: transparent !important; }
+
 #media {
   margin: 0 auto 5em auto; }
   #media h4 {

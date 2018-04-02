@@ -15,14 +15,7 @@ export const store = new Vuex.Store({
       { name: "Noticias", path: "/news" },
       { name: "Directorio", path: "/" },
       { name: "Eventos", path: "/events" },
-      {
-        name: "Galeria",
-        ref: "gall-dropdown",
-        children: [
-          { name: "Galeria 1", path: "/" },
-          { name: "Galeria 2", path: "/" }
-        ]
-      },
+      { name: "Galeria", path: "/gallery"},
       { name: "Documentos", path: "/" }
     ],
     linksHeader: [{
